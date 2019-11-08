@@ -12,10 +12,31 @@
 	<p id="message"></p>
 	<input type="button" id="reset" value="reset">
 </div>
-
-<div id="log">
-    <p style="margin-top: 250px;">Game Log</p>
+<div id="wrap2">
+    <button type="button" class="collapsible" id="logs_button">Game-State Logs</button>
+    <div class="content">
+        <div id="log">
+            <p style="margin-top: 250px;">Game Log</p>
+        </div>
+    </div>
 </div>
 
 
 <script src="/othello/Othello.js"></script>
+
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+        content.style.display = "none";
+    } else {
+        content.style.display = "block";
+    }
+    });
+}
+</script>

@@ -13,6 +13,7 @@
         var log = document.getElementsByName((log_count-1).toString())[0];
         console.log(log_count-1);
         clone.style.top = (300 * log_count) + "px";
+        clone.style.paddingBottom = "300px";
         document.getElementById("log").insertBefore(clone, log);
         
         log_count += 1;

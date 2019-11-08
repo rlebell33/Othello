@@ -13,13 +13,20 @@ body{
 	text-align:center;
 }
 
-#log{
-    position:absolute;
+#wrap2{
+	position:absolute;
 	width:256px;
 	left:50%;
 	margin-left:-128px;
     text-align:center;
-    margin-top: 275px;
+    top: 475px;
+}
+
+#log{
+	width:256px;
+	left:50%;
+    text-align:center;
+    margin-top: -175px;
 }
 
 .cell{
@@ -36,7 +43,46 @@ body{
 	position:relative;
 	top: 268px;
 }
+.content{
+    display: none;
+}
 
+#logs_button{
+    position:relative;
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 24px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: rgb(161, 219, 217);
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+
+#logs_button:hover {background-color: #638c9b}
+  
+#logs_button:active {
+  background-color: #307a8f;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.collapsible {
+    background-color: #777;
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+  }
+  
 #reset {
     position:relative;
     top: 258px;
