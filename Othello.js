@@ -4,6 +4,19 @@
 
 //Self Executing Function
 (function(){
+    log_count = 1;
+    var log = function(){
+        var board = document.getElementById("board");
+        var clone = board.cloneNode(true);
+        clone.setAttribute("name", log_count);
+
+        var log = document.getElementsByName((log_count-1).toString())[0];
+        console.log(log_count-1);
+        clone.style.top = (300 * log_count) + "px";
+        document.getElementById("log").insertBefore(clone, log);
+        
+        log_count += 1;
+    }
 	
 	var piece = [];
 	var turn;
@@ -101,7 +114,8 @@
 						var _x = x, _y = y;
 						c.onclick = function(){
 							if(checkPiece(_x, _y, true)){
-								turnChange();
+                                turnChange();
+                                log();
                             } else {               
                                 //If the player makes an incorrect move, highlight the correct ones.                 
                                 for(var x = 1; x <= 8; x++){
