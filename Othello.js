@@ -7,7 +7,7 @@
 	
 	var piece = [];
 	var turn;
-		
+	//x and y coordinate along with whether or not to flip pieces while checking
 	var checkPiece = function(x, y, flip){
 		var ret = 0;
 		for(var dx = -1; dx <= 1; dx++){
@@ -92,8 +92,9 @@
 			for(var x = 1; x <= 8; x++){
 				var c = piece[board[x][y]].cloneNode(true);
 				c.style.left = ((x - 1) * 32) + "px";
-				c.style.top = ((y - 1) * 32) + "px";
-				b.appendChild(c);
+                c.style.top = ((y - 1) * 32) + "px";
+                c.setAttribute("name", x + " " + y);
+                b.appendChild(c);
 				
 				if(board[x][y] == 0){
 					(function(){
@@ -101,7 +102,20 @@
 						c.onclick = function(){
 							if(checkPiece(_x, _y, true)){
 								turnChange();
-							}
+                            } else {               
+                                //If the player makes an incorrect move, highlight the correct ones.                 
+                                for(var x = 1; x <= 8; x++){
+                                    for(var y = 1; y <= 8; y++){
+                                        if(checkPiece(x, y, false)){
+                                            var pos = document.getElementsByName(x + " " + y)[0];
+                                            if(pos.id == "empty"){
+                                                pos.style.background= "blue";
+                                            }
+                                            continue;
+                                        }
+                                    }
+                                }
+                            }
 						}
 					})();
 				}
