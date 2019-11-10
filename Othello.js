@@ -12,16 +12,44 @@ Desc: Javascript file that contains the functionality for the base Othello game
     var log = function(){
         var board = document.getElementById("board");
         var clone = board.cloneNode(true);
-        clone.setAttribute("name", log_count);
+		clone.setAttribute("name", log_count);
+		clone.id = "board_log";
 
         var log = document.getElementsByName((log_count-1).toString())[0];
-        console.log(log_count-1);
-        clone.style.top = (300 * log_count) + "px";
-        clone.style.paddingBottom = "300px";
-        document.getElementById("log").insertBefore(clone, log);
+		console.log(log_count-1);
+		x = get_score();
+		console.log(x);
+		var score = document.createElement('span');
+		score.innerHTML = ((log_count % 2 == 0) ? "White's" : "Black's") + " Move: " + log_count + "\n" + x;
+		score.style.position = "absolute";
+		score.style.marginTop = "-390px";
+		score.style.left = "0px";
+		score.style.width = "100%";
+
+        clone.style.paddingBottom = "340px";
+		document.getElementById("log").insertBefore(clone, log);
+		document.getElementById("log").insertBefore(score, log);
         
         log_count += 1;
-    }
+	}
+	
+	var get_score = function(){
+		var b = 0;
+		var w = 0;
+		for(var x = 1; x <= 8; x++){
+			for(var y = 1; y <= 8; y++){
+				if(board[x][y] == 1){
+					b++;
+				}
+				if(board[x][y] == 2){
+					w++;
+				}
+			}
+		}
+		console.log("black: " + b);
+		console.log("white: " + w);
+		return("black: " + b + " | white: " + w);
+	}
 	
 	var piece = [];
 	var turn;

@@ -32,8 +32,8 @@ body{
 #log{
 	width:256px;
 	left:50%;
-    text-align:center;
-    margin-top: -175px;
+  text-align:center;
+  margin-top: 75px;
 }
 
 .cell{
@@ -46,6 +46,11 @@ body{
 #board{
 	position:absolute;
 }
+
+#board_log{
+  position: relative;
+}
+
 #message{
 	position:relative;
 	top: 268px;
