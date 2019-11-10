@@ -1,4 +1,8 @@
-
+/*
+Created By: Richard LeBell
+Student ID: 102-50-307
+Desc: Javascript file that contains the functionality for the base Othello game
+*/
 
 
 
