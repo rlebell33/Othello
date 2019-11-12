@@ -2,12 +2,17 @@
 
 Name: Richard LeBell
 Student ID: 102-50-307
-Desc: File that contains the html elements to actually run and display the game.
+Desc: File that contains the html elements to actually display the game.
 
  -->
 
 <link rel="stylesheet" href="/othello/style.css">
 
+<div id="intro">
+    <p>Please select which color you would like to play as: </p>
+    <button type="button" id="player_color_white"> White </button>
+    <button type="button" id="player_color_black"> Black </button>
+</div>
 <div id="template">
 	<div id="empty" class="cell"><div></div></div>
 	<div id="black" class="cell"><div></div></div>
@@ -27,6 +32,11 @@ Desc: File that contains the html elements to actually run and display the game.
         <div id="log">
         </div>
     </div>
+</div>
+<div id="test_board_wrap" style="display: none;">
+	<div id="test_empty" class="cell"><div></div></div>
+	<div id="test_black" class="cell"><div></div></div>
+	<div id="test_white" class="cell"><div></div></div>
 </div>
 
 
